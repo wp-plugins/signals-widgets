@@ -4,7 +4,7 @@ Donate link: http://www.69signals.com/
 Tags: widgets, instagram, dribbble, subscribe, video, social, personal, ads, flickr, youtube, vimeo, mailchimp, social icons, about me, bio, photo, text, widgets pack
 Requires at least: 3.5.0
 Tested up to: 4.0
-Stable tag: trunk
+Stable tag: 0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
