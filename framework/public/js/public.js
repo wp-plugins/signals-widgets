@@ -136,9 +136,7 @@ responsive:!0,responsiveRefreshRate:200,responsiveBaseWidth:g,baseClass:"owl-car
 // Works with either jQuery or Zepto
 })( window.jQuery || window.Zepto );
 
-/**
- * custom .js
- */
+/* custom javascript */
 
 (function( $ ) {
 
@@ -153,6 +151,7 @@ responsive:!0,responsiveRefreshRate:200,responsiveBaseWidth:g,baseClass:"owl-car
 			var $this = $( this );
 
 			$this.owlCarousel( {
+				singleItem: true,
 				items: 1,
 				autoPlay: 5000,
 				slideSpeed : 500,

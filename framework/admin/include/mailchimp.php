@@ -6,12 +6,12 @@
  * 
  * @author Drew McLellan <drew.mclellan@gmail.com>, 69signals
  * @version 1.0
- */
-
-/**
+ *
+ *
  * Create a new instance
  * @param string $api_key Your MailChimp API key
  */
+
 if ( ! function_exists( 'signals_mailchimp_init' ) ) :
 function signals_mailchimp_init( $api_key ) {
 

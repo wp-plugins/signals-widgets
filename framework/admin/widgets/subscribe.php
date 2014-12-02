@@ -103,11 +103,11 @@ class Signals_Subscribe_Widget extends WP_Widget {
 			echo '<div class="signals-subscribe-response ' . $response['code'] . '">' . $response['text'] . '</div>' . "\r\n";
 		}
 
-		echo '<div class="form-group">' . "\r\n";
+		echo '<div class="signals-form-group">' . "\r\n";
 		echo '<input type="text" name="signals-subscribe-email" placeholder="' . __( 'Enter your email address..', 'signals' ) . '" />' . "\r\n";
 		echo '</div>' . "\r\n";
 
-		echo '<input type="submit" class="button pink" value="' . __( 'Subscribe', 'signals' ) . '">' . "\r\n";
+		echo '<input type="submit" value="' . __( 'Subscribe', 'signals' ) . '">' . "\r\n";
 		echo '</form>' . "\r\n";
 
 		echo '</div>' . "\r\n";

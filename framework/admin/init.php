@@ -28,7 +28,7 @@ add_filter( 'plugin_row_meta', 'widgets_meta_links', 10, 2 ); // Add plugin meta
 function widgets_add_menu() {
 
 	if ( is_admin() && current_user_can( 'manage_options' ) ) {
-		// Main menu for the plugin along with a sub-menu.
+		// Main menu for the plugin along with a sub-menu
 		$signals_widgets_about 	= add_menu_page(
 			__( 'Widgets by 69signals', 'signals' ),
 			__( 'Widgets', 'signals' ),
@@ -48,7 +48,7 @@ function widgets_add_menu() {
 			'widgets_admin_support'
 		);
 
-		// Custom .css
+		// Custom css
 		$signals_widgets_css 	= add_submenu_page(
 			'widgets_about',
 			__( 'Custom CSS', 'signals' ),
@@ -58,7 +58,7 @@ function widgets_add_menu() {
 			'widgets_admin_css'
 		);
 
-		// Loading the js conditionally.
+		// Loading the js conditionally
 		add_action( 'load-' . $signals_widgets_about, 'widgets_load_styles' );
 		add_action( 'load-' . $signals_widgets_support, 'widgets_load_scripts' );
 		add_action( 'load-' . $signals_widgets_css, 'widgets_load_editor' );
@@ -67,12 +67,12 @@ function widgets_add_menu() {
 }
 add_action( 'admin_menu', 'widgets_add_menu' );
 
-// Including important files for the management panel.
+// Including important files for the management panel
 require SIGNALS_WIDGETS_PATH . 'framework/admin/about.php';
 require SIGNALS_WIDGETS_PATH . 'framework/admin/support.php';
 require SIGNALS_WIDGETS_PATH . 'framework/admin/css.php';
 
-// Registering and enqueueing .js files over here.
+// Registering and enqueueing js files over here
 function widgets_admin_scripts() {
 
 	wp_register_script( 'widgets-admin-base', SIGNALS_WIDGETS_URL . '/framework/admin/js/admin.js', 'jquery', '0.1', true );
@@ -119,19 +119,19 @@ function widgets_load_editor() {
 
 }
 
-// For adding custom styling to the widgets panel.
+// For adding custom styling to the widgets panel
 function signals_widgets_scripts() {
 
 	$screen = get_current_screen();
 
-	// Adding .css and .js files for the widgets page.
+	// Adding .css and .js files for the widgets page
 	if ( 'widgets' == $screen->id ) {
 		wp_register_script( 'signals-js-widgets', SIGNALS_WIDGETS_URL . '/framework/admin/js/widgets.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'signals-js-widgets' );
 
 		wp_enqueue_style( 'signals-css-widgets', SIGNALS_WIDGETS_URL . '/framework/admin/css/widgets.css' );
 
-		// Enqueue the WordPress media uploader.
+		// Enqueue the WordPress media uploader
 		wp_enqueue_media();
 	} // end if
 

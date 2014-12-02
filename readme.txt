@@ -3,8 +3,8 @@ Contributors: akshitsethi
 Donate link: http://www.69signals.com/
 Tags: widgets, instagram, dribbble, subscribe, video, social, personal, ads, flickr, youtube, vimeo, mailchimp, social icons, about me, bio, photo, text, widgets pack
 Requires at least: 3.5.0
-Tested up to: 4.0
-Stable tag: 0.1
+Tested up to: 4.0.1
+Stable tag: 0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,23 +13,23 @@ Widgets pack for WordPress. Spice up your blog with these super awesome widgets 
 
 == Description ==
 
-A plugin with 8 awesome widgets crafted to perfection. The widgets pack by 69signals is a power pack of widgets which are essential for any modern website powered by WordPress. The plugin has been designed with simplicity in mind and has been programmed to adapt to the styling of the theme in use. Though it also provides the option to add your own css for further styling. It's simple yet effective functionality makes it a must have for every website out there.
+A plugin with super awesome widgets crafted to perfection. The widgets pack by 69signals is a power pack of widgets which are essential for any modern website powered by WordPress. The plugin has been designed with simplicity in mind and has been programmed to adapt to the styling of the theme in use. Moreover, it also provides the option to add your own css for further styling. It's simple yet effective functionality makes it a must have for every website out there.
 
 
 = Plugin Features =
 
-* Pack of 8 super awesome widgets.
+* Pack of super awesome widgets.
 * Widgets include Ads, Video, Subscribe (MailChimp), Social, Flickr, Dribbble, Instagram, Personal.
 * Works with any WordPress Theme.
 * Adapts to the formatting of the Theme in use.
 * Option to add CSS to customize the appearance of the widgets.
 * Widgets can be easily identified in the WordPress panel.
-* No options to configure the plugin.
+* No configuration required for the plugin.
 * Translation Ready, i18n Support.
 * Get support within the options panel itself. It's something you going to love.
 
 
-This plugin is tested upto WordPress 4.0
+This plugin is tested upto WordPress 4.0.1
 
 == Installation ==
 
@@ -46,7 +46,14 @@ To manually install this plugin, please follow the instructions below.
 
 Getting help is just a click away now. Report issue using the support form in the plugin panel and we will get back to you at your admin email address. If the support form is not working for you, kindly send us an email at support@69signals.com explaining the issue you are facing with the plugin.
 
+== Changelog ==
+
+= 0.2 (2/12/2014) =
+* CSS & Bug fixes
+* Plugin enhancements
+* Code Improvements
+
 == Screenshots ==
 
-1. 8 widgets in the "Widgets" panel of WordPress.
+1. Widgets in the "Widgets" panel of WordPress.
 2. Get support within the options panel without leaving your website. Isn't that cool?

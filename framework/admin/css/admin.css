@@ -4,12 +4,12 @@
  */
 
 .signals-clearfix {
-  *zoom: 1;
+	*zoom: 1;
 }
 .signals-clearfix:before,
 .signals-clearfix:after {
-  display: table;
-  content: "";
+	display: table;
+	content: "";
 }
 .signals-clearfix:after {
   clear: both;
@@ -105,10 +105,12 @@
 .signals-links {
 	font-size: 14px !important;
 }
-.signals-share a, .signals-share iframe {
-	float: left;
-	margin-top: 4px;
-	height: 22px;
+.signals-share a {
+	display: inline-block;
+	margin-right: 10px;
+}
+.signals-share a:last-child {
+	margin-right: 0;
 }
 
 /* Responsive */

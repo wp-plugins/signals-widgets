@@ -45,7 +45,7 @@ class Signals_Ads_Widget extends WP_Widget {
 		}
 
 		// We are using \r\n for new lines.
-		echo '<div class="signals-ads signals-clear">' . "\r\n";
+		echo '<div class="signals-ads">' . "\r\n";
 
 		// Showing AD.
 		if ( ! empty( $ads_image ) && ! empty( $ads_link ) && ! empty( $ads_target ) ) {
@@ -110,10 +110,7 @@ class Signals_Ads_Widget extends WP_Widget {
 		</p>
 
 		<div class="signals-ads-upload-element">
-			<?php
-				// If the image url is present, show the image. Else, show the default upload text.
-				if ( ! empty( $instance['ads-image'] ) ) :
-			?>
+			<?php if ( ! empty( $instance['ads-image'] ) ) : // If the image url is present, show the image. Else, show the default upload text ?>
 				<span class="signals-preview-area"><center><img src="<?php echo esc_attr( $instance['ads-image'] ); ?>" /></center></span>
 			<?php else : ?>
 				<span class="signals-preview-area"><?php _e( 'AD preview will show over here.', 'signals' ); ?></span>

@@ -10,7 +10,7 @@
  * Plugin Name: 		Signals Widgets
  * Plugin URI: 			http://www.69signals.com/widgets-wordpress-plugin.php
  * Description: 		Widgets pack for WordPress. Spice up your blog with these super awesome widgets and add more functionality to it.
- * Version: 			0.1
+ * Version: 			0.2
  * Author: 				akshitsethi
  * Author URI: 			http://www.69signals.com
  * License: 			GPLv3

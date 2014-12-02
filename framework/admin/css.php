@@ -25,7 +25,7 @@ function widgets_admin_css() {
 	}
 
 	// Options for the custom css
-	$signals_widgets_options 		= get_option( 'signals_widgets_options' );
+	$signals_widgets_options 		= get_option( 'signals_widgets_options', array( 'custom_css' => '' ) );
 
 	// View template for the editor panel
 	require 'views/css.php';

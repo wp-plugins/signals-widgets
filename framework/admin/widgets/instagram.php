@@ -69,7 +69,7 @@ class Signals_Instagram_Widget extends WP_Widget {
 		}
 
 		if ( '' != $link ) {
-			echo '<p class="signals-clear"><a href="//instagram.com/' . trim( $username ) . '" rel="me" target="' . esc_attr( $target ) . '">' . $link . '</a></p>' . "\r\n";
+			echo '<p><a href="//instagram.com/' . trim( $username ) . '" rel="me" target="' . esc_attr( $target ) . '">' . $link . '</a></p>' . "\r\n";
 		}
 
 		echo '</div>' . "\r\n";

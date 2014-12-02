@@ -40,7 +40,7 @@
 		} );
 
 		// For the ads widget
-		// Removing photo from the canvas and emptying the text field.
+		// Removing photo from the canvas and emptying the text field
 		$( document ).on( 'click', '#signals-personal-remove-image', function( e ) {
 			e.preventDefault();
 
@@ -80,7 +80,7 @@
 			custom_uploader.open();
 		} );
 
-		// Removing photo from the canvas and emptying the text field.
+		// Removing photo from the canvas and emptying the text field
 		$( document ).on( 'click', '#signals-ads-remove-image', function( e ) {
 			e.preventDefault();
 

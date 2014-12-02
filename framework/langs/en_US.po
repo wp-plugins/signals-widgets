@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Signals Widgets\n"
-"POT-Creation-Date: 2014-11-01 01:22+0530\n"
-"PO-Revision-Date: 2014-11-01 01:23+0530\n"
+"POT-Creation-Date: 2014-12-02 20:50+0530\n"
+"PO-Revision-Date: 2014-12-02 21:02+0530\n"
 "Last-Translator: 69signals <ping@69signals.com>\n"
 "Language-Team: 69signals <ping@69signals.com>\n"
 "Language: en_US\n"
@@ -12,7 +12,8 @@ msgstr ""
 "X-Generator: Poedit 1.6.7\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: framework/admin/css.php:24
@@ -64,25 +65,22 @@ msgstr ""
 
 #: framework/admin/views/about.php:18
 msgid ""
-"Widgets by 69signals is a plugin which provides with the most essential "
-"widgets for the modern blog and we will make sure to update the plugin over "
-"time with more widgets & even more awesomeness. The current pack contains 8 "
-"widgets which are listed below."
+"<strong>Widgets</strong> by <strong>69signals</strong> is a plugin which "
+"provides with the most essential widgets for the modern blog and we will "
+"make sure to update the plugin over time with more widgets & even more "
+"awesomeness."
 msgstr ""
 
-#: framework/admin/views/about.php:31
+#: framework/admin/views/about.php:19
 msgid ""
 "Now that you have activated this plugin, all the widgets will appear in the "
 "Widgets section of your WordPress panel. Simply select the widget you would "
 "like to use and you are done. You don't have to configure anything. It's "
-"that bloody simple."
+"that simple."
 msgstr ""
 
-#: framework/admin/views/about.php:32
-msgid ""
-"If you like using our plugin, then do us a favour by spreading word about "
-"it. Do share about us on your favourite social media and we promise to "
-"deliver more awesome products in future."
+#: framework/admin/views/about.php:20
+msgid "Show us some love. Connect with us via Social channels."
 msgstr ""
 
 #: framework/admin/views/css.php:20
@@ -119,29 +117,29 @@ msgstr ""
 msgid " explaining the issue you are facing with the plugin."
 msgstr ""
 
-#: framework/admin/views/support.php:25
+#: framework/admin/views/support.php:26
 msgid "Email Address"
 msgstr ""
 
-#: framework/admin/views/support.php:26
+#: framework/admin/views/support.php:27
 msgid "Please provide your email address"
 msgstr ""
 
-#: framework/admin/views/support.php:28
+#: framework/admin/views/support.php:29
 msgid "You will receive support response at this email address."
 msgstr ""
 
-#: framework/admin/views/support.php:32
+#: framework/admin/views/support.php:33
 msgid "Issue / Feedback"
 msgstr ""
 
-#: framework/admin/views/support.php:33 framework/admin/views/support.php:35
+#: framework/admin/views/support.php:34 framework/admin/views/support.php:36
 msgid ""
 "Please explain the issue you are facing with the plugin. Provide as much "
 "detail as possible."
 msgstr ""
 
-#: framework/admin/views/support.php:38
+#: framework/admin/views/support.php:39
 msgid "Ask for Support"
 msgstr ""
 
@@ -162,43 +160,43 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:119
+#: framework/admin/widgets/ads.php:116
 msgid "AD preview will show over here."
 msgstr ""
 
-#: framework/admin/widgets/ads.php:123
+#: framework/admin/widgets/ads.php:120
 #: framework/admin/widgets/personal.php:103
 msgid "Select Image"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:127
+#: framework/admin/widgets/ads.php:124
 #: framework/admin/widgets/personal.php:107
 msgid "Remove"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:133
+#: framework/admin/widgets/ads.php:130
 msgid "Link"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:138
+#: framework/admin/widgets/ads.php:135
 msgid "Target"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:140
+#: framework/admin/widgets/ads.php:137
 #: framework/admin/widgets/instagram.php:148
 msgid "_self"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:141
+#: framework/admin/widgets/ads.php:138
 #: framework/admin/widgets/instagram.php:149
 msgid "_blank"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:142
+#: framework/admin/widgets/ads.php:139
 msgid "_parent"
 msgstr ""
 
-#: framework/admin/widgets/ads.php:147
+#: framework/admin/widgets/ads.php:144
 #: framework/admin/widgets/subscribe.php:161
 msgid "Text"
 msgstr ""
