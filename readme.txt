@@ -4,7 +4,7 @@ Donate link: http://www.69signals.com/
 Tags: widgets, instagram, dribbble, subscribe, video, social, personal, ads, flickr, youtube, vimeo, mailchimp, social icons, about me, bio, photo, text, widgets pack
 Requires at least: 3.5.0
 Tested up to: 4.0.1
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,6 +47,10 @@ To manually install this plugin, please follow the instructions below.
 Getting help is just a click away now. Report issue using the support form in the plugin panel and we will get back to you at your admin email address. If the support form is not working for you, kindly send us an email at support@69signals.com explaining the issue you are facing with the plugin.
 
 == Changelog ==
+
+= 0.3 (7/12/2014) =
+* Fixed compatibility issues with some themes
+* CSS fixes
 
 = 0.2 (2/12/2014) =
 * CSS & Bug fixes

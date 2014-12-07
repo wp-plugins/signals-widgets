@@ -12,7 +12,7 @@ function widgets_meta_links( $links, $file ) {
 
 	if ( strpos( $file, 'signals-widgets.php' ) !== false ) {
 		$new_links = array(
-			'<a href="http://support.69signals.com" target="_blank">' . __( 'Support', 'signals' ) . '</a>',
+			'<a href="http://www.69signals.com/support/" target="_blank">' . __( 'Support', 'signals' ) . '</a>',
 			'<a href="http://www.69signals.com/hire-us.php" target="_blank">' . __( 'Hire Us', 'signals' ) . '</a>'
 		);
 

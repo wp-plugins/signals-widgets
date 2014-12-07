@@ -300,7 +300,6 @@
 }
 .signals-ads p {
     margin-top: 10px;
-    font-size: 12px;
 }
 .signals-ads p span {
     padding: 5px 0;
@@ -329,7 +328,7 @@
 }
 .signals-social a {
     display: inline-block;
-    padding: 4px 10px 4px 0;
+    padding: 5px 10px 5px 0;
     border: none;
 }
 .signals-social a:hover,
@@ -340,10 +339,17 @@
 
 /* Subscribe */
 
+.signals-form-control {
+    background: #fbfbfb;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 0;
+    border-radius: 0;
+}
 .signals-subscribe-response {
-    font-size: 12px;
-    padding: 5px;
     color: #ffffff;
+    padding: 5px;
     margin-bottom: 5px;
 }
 .signals-subscribe-response.error {
@@ -355,6 +361,7 @@
     background: #f3faf8;
 }
 .signals-form-group {
+    margin-top: 10px;
     margin-bottom: 5px;
 }
 

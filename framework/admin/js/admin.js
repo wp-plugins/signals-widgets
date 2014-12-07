@@ -76,6 +76,7 @@
 
             editor.session.setUseSoftTabs(null);
         }
+
 	} );
 
 })( jQuery );
