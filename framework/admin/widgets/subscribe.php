@@ -21,6 +21,8 @@ class Signals_Subscribe_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Output the HTML for this widget.
 	 *
@@ -30,8 +32,10 @@ class Signals_Subscribe_Widget extends WP_Widget {
 	 * @param array $instance An array of settings for this widget instance.
 	 * @return void Echoes its output.
 	 */
+
 	public function widget( $args, $instance ) {
 
+		$instance 		= wp_parse_args( (array) $instance, self::defaults() );
 		$title 			= apply_filters( 'widget_title', $instance['title'] );
 		$widget_text 	= $instance['widget-text'];
 		$API_key 		= $instance['API-key'];
@@ -87,18 +91,18 @@ class Signals_Subscribe_Widget extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		// We are using \r\n for new lines.
+		// We are using \r\n for new lines
 		echo '<div class="signals-subscribe">' . "\r\n";
 
-		// If the widget text is not empty, show it.
+		// If the widget text is not empty, show it
 		if ( ! empty( $widget_text ) ) {
 			echo '<p>' . $widget_text . '</p>' . "\r\n";
 		}
 
-		// Now showing the form over here.
+		// Now showing the form over here
 		echo '<form role="form" method="post">' . "\r\n";
 
-		// If the form is submitted and response field is set.
+		// If the form is submitted and response field is set
 		if ( isset( $response ) ) {
 			echo '<div class="signals-subscribe-response ' . $response['code'] . '">' . $response['text'] . '</div>' . "\r\n";
 		}
@@ -115,6 +119,8 @@ class Signals_Subscribe_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Deal with the settings when they are saved by the admin.
 	 * Here is where any validation should happen.
@@ -123,8 +129,10 @@ class Signals_Subscribe_Widget extends WP_Widget {
 	 * @param array $instance     Original widget instance.
 	 * @return array Updated widget instance.
 	 */
+
 	function update( $new_instance, $instance ) {
 
+		$new_instance 				= wp_parse_args( (array) $new_instance, self::defaults() );
 		$instance['title'] 			= strip_tags( $new_instance['title'] );
 		$instance['widget-text'] 	= stripslashes( $new_instance['widget-text'] );
 		$instance['API-key'] 		= stripslashes( $new_instance['API-key'] );
@@ -134,22 +142,19 @@ class Signals_Subscribe_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Display the form for this widget on the Widgets page of the Admin area.
 	 *
 	 * @param array $instance
 	 * @return void
 	 */
+
 	function form( $instance ) {
 
-		$defaults = array(
-			'title' 		=> 'Subscribe',
-			'widget-text' 	=> 'We will reach your mailbox twice a month only. Don\'t worry, we hate spam too!',
-			'API-key' 		=> '',
-			'list-ID' 		=> ''
-		);
+		$instance = wp_parse_args( (array) $instance, self::defaults() );
 
-		$instance = wp_parse_args( (array) $instance, $defaults );
 	?>
 
 		<p>
@@ -173,6 +178,26 @@ class Signals_Subscribe_Widget extends WP_Widget {
 		</p>
 
 	<?php
+
+	}
+
+
+
+	/**
+	 * Returns default options for the widget.
+	 * @access private
+	 */
+
+	private static function defaults() {
+
+		$defaults = array(
+			'title' 		=> 'Subscribe',
+			'widget-text' 	=> 'We will reach your mailbox twice a month only. Don\'t worry, we hate spam too!',
+			'API-key' 		=> '',
+			'list-ID' 		=> ''
+		);
+
+		return $defaults;
 
 	}
 

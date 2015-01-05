@@ -157,6 +157,8 @@ responsive:!0,responsiveRefreshRate:200,responsiveBaseWidth:g,baseClass:"owl-car
 				slideSpeed : 500,
 				paginationSpeed : 800,
 				pagination : false,
+				navigation : true,
+				navigationText : ["<i class='fa fa-fw fa-chevron-left'></i>","<i class='fa fa-fw fa-chevron-right'></i>"],
 				autoHeight: true
 			} );
 		} );

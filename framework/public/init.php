@@ -11,31 +11,33 @@
 function signals_widgets_init() {
 
 	// Video widget for displaying videos in the sidebar
-	require SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/video.php';
+	require_once SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/video.php';
 
 	// Subscribe widget for subscribe form connected to MailChimp list
-	require SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/subscribe.php';
+	require_once SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/subscribe.php';
 
 	// Personal widget for showing personal information
-	require SIGNALS_WIDGETS_PATH . '/framework/admin/widgets/personal.php';
+	require_once SIGNALS_WIDGETS_PATH . '/framework/admin/widgets/personal.php';
 
 	// Ads widget for displaying AD in 125 x 125 px format along with text
-	require SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/ads.php';
+	require_once SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/ads.php';
 
 	// Social widget for showing social media profiles
-	require SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/social.php';
+	require_once SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/social.php';
 
 	// Flickr widget for showing user photos from Flickr
-	require SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/flickr.php';
+	require_once SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/flickr.php';
 
 	// Dribbble widget for showing shots from Dribbble
-	require SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/dribbble.php';
+	require_once SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/dribbble.php';
 
 	// Instagram widget for showing photos from Instagram
-	require SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/instagram.php';
+	require_once SIGNALS_WIDGETS_PATH . 'framework/admin/widgets/instagram.php';
 
 }
 add_action( 'widgets_init', 'signals_widgets_init' );
+
+
 
 // Adding the public side of css and js
 function widgets_public_scripts() {
@@ -49,13 +51,15 @@ function widgets_public_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'widgets_public_scripts' );
 
+
+
 // Inserting custom css to the header if it's set by the user
 function widgets_custom_css() {
 
 	// Getting the option from the database
 	$signals_widgets_options = get_option( 'signals_widgets_options' );
 
-	if ( ! empty( $signals_widgets_options ) ) {
+	if ( isset( $signals_widgets_options['custom_css'] ) && ! empty( $signals_widgets_options['custom_css'] ) ) {
 		echo '<style>' . stripslashes( $signals_widgets_options['custom_css'] ) . '</style>' . "\r\n";
 	}
 

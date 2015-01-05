@@ -10,7 +10,7 @@
  * Plugin Name: 		Signals Widgets
  * Plugin URI: 			http://www.69signals.com/widgets-wordpress-plugin.php
  * Description: 		Widgets pack for WordPress. Spice up your blog with these super awesome widgets and add more functionality to it.
- * Version: 			0.3
+ * Version: 			0.4
  * Author: 				akshitsethi
  * Author URI: 			http://www.69signals.com
  * License: 			GPLv3
@@ -20,7 +20,7 @@
  *
  *
  * Signals Widgets Plugin
- * Copyright (C) 2014, akshitsethi - support@69signals.com
+ * Copyright (C) 2015, akshitsethi - support@69signals.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,9 +43,13 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Constants we will be using throughout the plugin.
+
+
+/* Constants we will be using throughout the plugin. */
 define( 'SIGNALS_WIDGETS_URL', plugins_url( '', __FILE__ ) );
 define( 'SIGNALS_WIDGETS_PATH', plugin_dir_path( __FILE__ ) );
+
+
 
 /**
  * For the plugin activation & de-activation.
@@ -69,7 +73,9 @@ function widgets_plugin_activation() {
 }
 register_activation_hook( __FILE__, 'widgets_plugin_activation' );
 
-// Hook for the plugin deactivation.
+
+
+/* Hook for the plugin deactivation. */
 function widgets_plugin_deactivation() {
 
 	// Silence is golden
@@ -78,6 +84,8 @@ function widgets_plugin_deactivation() {
 }
 register_deactivation_hook( __FILE__, 'widgets_plugin_activation' );
 
+
+
 /**
  * Including files necessary for the management panel of the plugin.
  * Basically, support panel and option to insert custom .css is provided.
@@ -85,6 +93,8 @@ register_deactivation_hook( __FILE__, 'widgets_plugin_activation' );
 if ( is_admin() ) {
 	require SIGNALS_WIDGETS_PATH . 'framework/admin/init.php';
 }
+
+
 
 /**
  * Let's start the plugin now.

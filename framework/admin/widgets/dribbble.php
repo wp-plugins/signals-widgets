@@ -21,6 +21,8 @@ class Signals_Dribbble_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Output the HTML for this widget.
 	 *
@@ -30,14 +32,16 @@ class Signals_Dribbble_Widget extends WP_Widget {
 	 * @param array $instance An array of settings for this widget instance.
 	 * @return void Echoes its output.
 	 */
+
 	public function widget( $args, $instance ) {
 
 		// Including the WordPress feed class.
 		include_once( ABSPATH . WPINC . '/feed.php' );
 
-		$title 	= apply_filters( 'widget_title', $instance['title'] );
-		$name 	= $instance['name'];
-		$shots 	= $instance['shots'];
+		$instance 	= wp_parse_args( (array) $instance, self::defaults() );
+		$title 		= apply_filters( 'widget_title', $instance['title'] );
+		$name 		= $instance['name'];
+		$shots 		= $instance['shots'];
 
 		echo $args['before_widget'];
 
@@ -65,9 +69,7 @@ class Signals_Dribbble_Widget extends WP_Widget {
 					preg_match( "/src=\"(http.*(jpg|jpeg|gif|png))/", $description, $image_url );
 					$image 			= $image_url[1];
 
-					echo '<div class="item">' . "\r\n";
-					echo '<a href="' . esc_url( $link ) . '"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $title ) . '"/></a>' . "\r\n";
-					echo '</div>' . "\r\n";
+					echo '<div class="item"><a href="' . esc_url( $link ) . '"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $title ) . '"/></a></div>' . "\r\n";
 				}
 			}
 		} // If (fetch_feed)
@@ -78,6 +80,8 @@ class Signals_Dribbble_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Deal with the settings when they are saved by the admin.
 	 * Here is where any validation should happen.
@@ -86,8 +90,10 @@ class Signals_Dribbble_Widget extends WP_Widget {
 	 * @param array $instance     Original widget instance.
 	 * @return array Updated widget instance.
 	 */
+
 	function update( $new_instance, $instance ) {
 
+		$new_instance 		= wp_parse_args( (array) $new_instance, self::defaults() );
 		$instance['title'] 	= strip_tags( $new_instance['title'] );
 		$instance['name'] 	= strip_tags( $new_instance['name'] );
 		$instance['shots'] 	= strip_tags( $new_instance['shots'] );
@@ -96,21 +102,18 @@ class Signals_Dribbble_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Display the form for this widget on the Widgets page of the Admin area.
 	 *
 	 * @param array $instance
 	 * @return void
 	 */
+
 	function form( $instance ) {
 
-		$defaults = array(
-			'title' 	=> __( 'Dribbble', 'signals' ),
-			'name' 		=> '',
-			'shots' 	=> '8'
-		);
-
-		$instance = wp_parse_args( (array) $instance, $defaults );
+		$instance = wp_parse_args( (array) $instance, self::defaults() );
 
 	?>
 
@@ -130,6 +133,25 @@ class Signals_Dribbble_Widget extends WP_Widget {
 		</p>
 
 	<?php
+
+	}
+
+
+
+	/**
+	 * Returns default options for the widget.
+	 * @access private
+	 */
+
+	private static function defaults() {
+
+		$defaults = array(
+			'title' 	=> __( 'Dribbble', 'signals' ),
+			'name' 		=> '',
+			'shots' 	=> '8'
+		);
+
+		return $defaults;
 
 	}
 

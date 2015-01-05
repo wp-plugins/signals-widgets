@@ -21,6 +21,8 @@ class Signals_Flickr_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Output the HTML for this widget.
 	 *
@@ -30,11 +32,13 @@ class Signals_Flickr_Widget extends WP_Widget {
 	 * @param array $instance An array of settings for this widget instance.
 	 * @return void Echoes its output.
 	 */
+
 	public function widget( $args, $instance ) {
 
-		$title 	= apply_filters( 'widget_title', $instance['title'] );
-		$id 	= $instance['id'];
-		$count 	= $instance['count'];
+		$instance 	= wp_parse_args( (array) $instance, self::defaults() );
+		$title 		= apply_filters( 'widget_title', $instance['title'] );
+		$id 		= $instance['id'];
+		$count 		= $instance['count'];
 
 		echo $args['before_widget'];
 
@@ -46,7 +50,7 @@ class Signals_Flickr_Widget extends WP_Widget {
 		echo '<div class="signals-flickr">' . "\r\n";
 		echo '<div class="signals-carousel owl-carousel owl-theme">' . "\r\n";
 
-		// If the user's set their flickr id, grab their latest pics.
+		// If the user's set their flickr id, grab their latest pics
 		if ( '' != $id ) {
 			$images 	= array();
 			$regx 		= "/<img(.+)\/>/";
@@ -55,7 +59,7 @@ class Signals_Flickr_Widget extends WP_Widget {
 			$rss_url 	= 'http://api.flickr.com/services/feeds/photos_public.gne?id=' . $id . '&lang=en-us&format=rss_200';
 			$feed 		= simplexml_load_file( $rss_url );
 
-			// Store images from the feed in an array.
+			// Store images from the feed in an array
 			foreach( $feed->channel->item as $item ) {
 				preg_match( $regx, $item->description, $matches );
 
@@ -65,7 +69,7 @@ class Signals_Flickr_Widget extends WP_Widget {
 				);
 			}
 
-			// Loop through the images and display the number they wish to show.
+			// Loop through the images and display the number they wish to show
 			$image_count = 0;
 
 			if ( '' == $count ) {
@@ -75,7 +79,7 @@ class Signals_Flickr_Widget extends WP_Widget {
 			foreach( $images as $img ) {
 				if ( $image_count < $count ) {
 					$img_tag = str_replace( "_m", "_b", $img[ 'thumb' ] );
-					echo '<div class="item"><a href="' . $img[ 'link' ] . '">' . $img_tag . '</a></div>';
+					echo '<div class="item"><a href="' . $img[ 'link' ] . '">' . $img_tag . '</a></div>' . "\r\n";
 					$image_count++;
 				}
 			}
@@ -88,6 +92,8 @@ class Signals_Flickr_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Deal with the settings when they are saved by the admin.
 	 * Here is where any validation should happen.
@@ -96,8 +102,10 @@ class Signals_Flickr_Widget extends WP_Widget {
 	 * @param array $instance     Original widget instance.
 	 * @return array Updated widget instance.
 	 */
+
 	function update( $new_instance, $instance ) {
 
+		$new_instance 		= wp_parse_args( (array) $new_instance, self::defaults() );
 		$instance['title'] 	= strip_tags( $new_instance['title'] );
 		$instance['id'] 	= strip_tags( $new_instance['id'] );
 		$instance['count'] 	= strip_tags( $new_instance['count'] );
@@ -106,21 +114,18 @@ class Signals_Flickr_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Display the form for this widget on the Widgets page of the Admin area.
 	 *
 	 * @param array $instance
 	 * @return void
 	 */
+
 	function form( $instance ) {
 
-		$defaults = array(
-			'title' 	=> 'Photos',
-			'id' 		=> '',
-			'count' 	=> '8'
-		);
-
-		$instance = wp_parse_args( (array) $instance, $defaults );
+		$instance = wp_parse_args( (array) $instance, self::defaults() );
 
 	?>
 
@@ -141,6 +146,25 @@ class Signals_Flickr_Widget extends WP_Widget {
 		</p>
 
 	<?php
+
+	}
+
+
+
+	/**
+	 * Returns default options for the widget.
+	 * @access private
+	 */
+
+	private static function defaults() {
+
+		$defaults = array(
+			'title' 	=> 'Photos',
+			'id' 		=> '',
+			'count' 	=> '8'
+		);
+
+		return $defaults;
 
 	}
 

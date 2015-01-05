@@ -20,6 +20,8 @@ function widgets_admin_support() {
 
 }
 
+
+
 // AJAX request for user support
 function widgets_ajax_support() {
 
@@ -32,7 +34,7 @@ function widgets_ajax_support() {
 	if ( ! empty( $_POST['signals_support_email'] ) && ! empty( $_POST['signals_support_issue'] ) ) {
 		// Filtering and sanitizing the support issue.
 		$admin_email 	= sanitize_text_field( $_POST['signals_support_email'] );
-		$issue 			= strip_tags( $_POST['signals_support_issue'] );
+		$issue 			= $_POST['signals_support_issue'];
 
 		$subject 		= '[Support Ticket] by '. $admin_email;
 		$body 			= "Email: $admin_email \r\nIssue: $issue";
@@ -62,5 +64,4 @@ function widgets_ajax_support() {
 	exit();
 
 }
-
 add_action( 'wp_ajax_signals_support', 'widgets_ajax_support' );

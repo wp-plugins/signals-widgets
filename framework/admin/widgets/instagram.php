@@ -21,6 +21,8 @@ class Signals_Instagram_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Output the HTML for this widget.
 	 *
@@ -30,8 +32,10 @@ class Signals_Instagram_Widget extends WP_Widget {
 	 * @param array $instance An array of settings for this widget instance.
 	 * @return void Echoes its output.
 	 */
+
 	public function widget( $args, $instance ) {
 
+		$instance 	= wp_parse_args( (array) $instance, self::defaults() );
 		$title 		= empty( $instance['title'] ) ? '' : apply_filters('widget_title', $instance['title']);
 		$username 	= empty( $instance['username'] ) ? '' : $instance['username'];
 		$limit 		= empty( $instance['number'] ) ? 9 : $instance['number'];
@@ -58,13 +62,13 @@ class Signals_Instagram_Widget extends WP_Widget {
 			} else {
 				// We will display images only
 				$media = array_filter( $media, array( $this, 'filter_images' ) );
-				echo '<ul class="signals-carousel owl-carousel owl-theme">' . "\r\n";
+				echo '<div class="signals-carousel owl-carousel owl-theme">' . "\r\n";
 
 				foreach ( $media as $item ) {
-					echo '<li class="item"><a href="' . esc_url( $item['link'] ) . '" target="' . esc_attr( $target ) . '"><img src="' . esc_url( $item[$size]['url'] ) . '"  alt="' . esc_attr( $item['description'] ) . '" title="' . esc_attr( $item['description'] ) . '"/></a></li>' . "\r\n";
+					echo '<div class="item"><a href="' . esc_url( $item['link'] ) . '" target="' . esc_attr( $target ) . '"><img src="' . esc_url( $item[$size]['url'] ) . '"  alt="' . esc_attr( $item['description'] ) . '" title="' . esc_attr( $item['description'] ) . '"/></a></div>' . "\r\n";
 				}
 
-				echo '</ul>' . "\r\n";
+				echo '</div>' . "\r\n";
 			}
 		}
 
@@ -77,6 +81,8 @@ class Signals_Instagram_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Deal with the settings when they are saved by the admin.
 	 * Here is where any validation should happen.
@@ -85,8 +91,10 @@ class Signals_Instagram_Widget extends WP_Widget {
 	 * @param array $instance     Original widget instance.
 	 * @return array Updated widget instance.
 	 */
+
 	function update( $new_instance, $instance ) {
 
+		$new_instance 			= wp_parse_args( (array) $new_instance, self::defaults() );
 		$instance['title'] 		= strip_tags( $new_instance['title'] );
 		$instance['username'] 	= trim( strip_tags( $new_instance['username'] ) );
 		$instance['number'] 	= ! absint( $new_instance['number'] ) ? '9' : $new_instance['number'];
@@ -98,24 +106,18 @@ class Signals_Instagram_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Display the form for this widget on the Widgets page of the Admin area.
 	 *
 	 * @param array $instance
 	 * @return void
 	 */
+
 	function form( $instance ) {
 
-		$defaults = array(
-			'title' 	=> __( 'Instagram', 'signals' ),
-			'username' 	=> '',
-			'number' 	=> '9',
-			'size' 		=> 'thumbnail',
-			'target' 	=> '_self',
-			'link' 		=> ''
-		);
-
-		$instance = wp_parse_args( (array) $instance, $defaults );
+		$instance = wp_parse_args( (array) $instance, self::defaults() );
 
 	?>
 
@@ -159,10 +161,35 @@ class Signals_Instagram_Widget extends WP_Widget {
 
 	}
 
+
+
+	/**
+	 * Returns default options for the widget.
+	 * @access private
+	 */
+
+	private static function defaults() {
+
+		$defaults = array(
+			'title' 	=> __( 'Instagram', 'signals' ),
+			'username' 	=> '',
+			'number' 	=> '9',
+			'size' 		=> 'thumbnail',
+			'target' 	=> '_self',
+			'link' 		=> ''
+		);
+
+		return $defaults;
+
+	}
+
+
+
 	/**
 	 * For scraping the instagram feed
 	 * @link https://gist.github.com/cosmocatalano/4544576
 	 */
+
 	function instagram_feed( $username, $slice = '9' ) {
 
 		$username = strtolower( $username );
@@ -218,6 +245,9 @@ class Signals_Instagram_Widget extends WP_Widget {
 
 	}
 
+
+
+	/* We are only filtering images. */
 	function filter_images( $media_item ) {
 
 		if ( 'image' == $media_item['type'] ) {

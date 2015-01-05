@@ -21,6 +21,8 @@ class Signals_Ads_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Output the HTML for this widget.
 	 *
@@ -30,8 +32,10 @@ class Signals_Ads_Widget extends WP_Widget {
 	 * @param array $instance An array of settings for this widget instance.
 	 * @return void Echoes its output.
 	 */
+
 	public function widget( $args, $instance ) {
 
+		$instance 	= wp_parse_args( (array) $instance, self::defaults() );
 		$title 		= apply_filters( 'widget_title', $instance['title'] );
 		$ads_image 	= $instance['ads-image'];
 		$ads_link 	= $instance['ads-link'];
@@ -44,17 +48,17 @@ class Signals_Ads_Widget extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		// We are using \r\n for new lines.
+		// We are using \r\n for new lines
 		echo '<div class="signals-ads">' . "\r\n";
 
-		// Showing AD.
+		// Showing AD
 		if ( ! empty( $ads_image ) && ! empty( $ads_link ) && ! empty( $ads_target ) ) {
 			echo '<a href="' . $ads_link . '" target="' . $ads_target . '">' . "\r\n";
 			echo '<img src="' . $ads_image . '" />' . "\r\n";
 			echo '</a>' . "\r\n";
 		}
 
-		// If the description text is provided.
+		// If the description text is provided
 		if ( ! empty( $ads_text ) ) {
 			echo '<p><span>' . $ads_text . '</span></p>' . "\r\n";
 		}
@@ -64,6 +68,8 @@ class Signals_Ads_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Deal with the settings when they are saved by the admin.
 	 * Here is where any validation should happen.
@@ -72,8 +78,10 @@ class Signals_Ads_Widget extends WP_Widget {
 	 * @param array $instance     Original widget instance.
 	 * @return array Updated widget instance.
 	 */
+
 	function update( $new_instance, $instance ) {
 
+		$new_instance 			= wp_parse_args( (array) $new_instance, self::defaults() );
 		$instance['title'] 		= strip_tags( $new_instance['title'] );
 		$instance['ads-image'] 	= stripslashes( $new_instance['ads-image'] );
 		$instance['ads-link'] 	= stripslashes( $new_instance['ads-link'] );
@@ -84,23 +92,18 @@ class Signals_Ads_Widget extends WP_Widget {
 
 	}
 
+
+
 	/**
 	 * Display the form for this widget on the Widgets page of the Admin area.
 	 *
 	 * @param array $instance
 	 * @return void
 	 */
+
 	function form( $instance ) {
 
-		$defaults = array(
-			'title' 		=> 'Sponsored',
-			'ads-image' 	=> '',
-			'ads-link' 		=> '',
-			'ads-target' 	=> '_blank',
-			'ads-text' 		=> ''
-		);
-
-		$instance = wp_parse_args( (array) $instance, $defaults );
+		$instance = wp_parse_args( (array) $instance, self::defaults() );
 
 	?>
 
@@ -146,6 +149,27 @@ class Signals_Ads_Widget extends WP_Widget {
 		</p>
 
 	<?php
+
+	}
+
+
+
+	/**
+	 * Returns default options for the widget.
+	 * @access private
+	 */
+
+	private static function defaults() {
+
+		$defaults = array(
+			'title' 		=> 'Sponsored',
+			'ads-image' 	=> '',
+			'ads-link' 		=> '',
+			'ads-target' 	=> '_blank',
+			'ads-text' 		=> ''
+		);
+
+		return $defaults;
 
 	}
 

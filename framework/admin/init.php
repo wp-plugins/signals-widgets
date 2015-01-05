@@ -24,6 +24,8 @@ function widgets_meta_links( $links, $file ) {
 }
 add_filter( 'plugin_row_meta', 'widgets_meta_links', 10, 2 ); // Add plugin meta links
 
+
+
 // Menu for the support and about panel
 function widgets_add_menu() {
 
@@ -67,10 +69,14 @@ function widgets_add_menu() {
 }
 add_action( 'admin_menu', 'widgets_add_menu' );
 
+
+
 // Including important files for the management panel
 require SIGNALS_WIDGETS_PATH . 'framework/admin/about.php';
 require SIGNALS_WIDGETS_PATH . 'framework/admin/support.php';
 require SIGNALS_WIDGETS_PATH . 'framework/admin/css.php';
+
+
 
 // Registering and enqueueing js files over here
 function widgets_admin_scripts() {
@@ -80,12 +86,17 @@ function widgets_admin_scripts() {
 
 }
 
+
+
+// Scripts & styles for the support page
 function widgets_load_scripts() {
 
 	add_action( 'admin_enqueue_scripts', 'widgets_admin_styles' );
 	add_action( 'admin_enqueue_scripts', 'widgets_admin_scripts' );
 
 }
+
+
 
 // Only for the styles
 function widgets_admin_styles() {
@@ -95,11 +106,15 @@ function widgets_admin_styles() {
 
 }
 
+
+
 function widgets_load_styles() {
 
 	add_action( 'admin_enqueue_scripts', 'widgets_admin_styles' );
 
 }
+
+
 
 // For the custom css editor
 function widgets_admin_editor() {
@@ -112,12 +127,16 @@ function widgets_admin_editor() {
 
 }
 
+
+
 function widgets_load_editor() {
 
 	add_action( 'admin_enqueue_scripts', 'widgets_admin_styles' );
 	add_action( 'admin_enqueue_scripts', 'widgets_admin_editor' );
 
 }
+
+
 
 // For adding custom styling to the widgets panel
 function signals_widgets_scripts() {
@@ -133,7 +152,7 @@ function signals_widgets_scripts() {
 
 		// Enqueue the WordPress media uploader
 		wp_enqueue_media();
-	} // end if
+	} // $screen->id
 
 }
 add_action( 'admin_enqueue_scripts', 'signals_widgets_scripts' );

@@ -25,20 +25,23 @@ function signals_mailchimp_init( $api_key ) {
 }
 endif;
 
+
+
 /**
  * Call an API method. Every request needs the API key, so that is added automatically -- you don't need to pass it in.
  * @param  string $method The API method to call, e.g. 'lists/list'
  * @param  array  $args   An array of arguments to pass to the method. Will be json-encoded for you.
  * @return array          Associative array of json decoded API response.
  */
+
 if ( ! function_exists( 'signals_mailchimp_call' ) ) :
 function signals_mailchimp_call( $method, $args = array() ) {
 
-    // Getting the API endpoint.
+    // Getting the API endpoint
     $api_endpoint   = signals_mailchimp_init( $args['apikey'] );
     $url            = $api_endpoint . '/' . $method . '.json';
 
-    // Sending it as per WordPress specifications.
+    // Sending it as per WordPress specifications
     $response       = wp_remote_post( $url, array(
         'method'        => 'POST',
         'timeout'       => 15,

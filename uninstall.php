@@ -16,5 +16,5 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-// Removing the custom css from the database
+/* Removing the custom css from the database. */
 delete_option( 'signals_widgets_options' );
